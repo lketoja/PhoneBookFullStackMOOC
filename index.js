@@ -31,17 +31,17 @@ let people = [
     }
 ]
 
-app.get('api/info', (req, res) => {
+app.get('/api/info', (req, res) => {
   res.write(`<p>Phonebook has info for ${people.length} people</p>`)
   res.write(`<p>${Date()}</p>`)
   res.send()
 })
 
-app.get('api/people', (req, res) => {
+app.get('/api/people', (req, res) => {
     res.json(people)
 })
 
-app.get('api/people/:id', (request, response) => {
+app.get('/api/people/:id', (request, response) => {
     console.log(request.params)
     const id = Number(request.params.id)
     const person = people.find(person => person.id === id)
@@ -52,7 +52,7 @@ app.get('api/people/:id', (request, response) => {
     }
 })
 
-app.post('api/people', (request, response) => {
+app.post('/api/people', (request, response) => {
   const body = request.body
   console.log(body)
 
@@ -76,7 +76,7 @@ app.post('api/people', (request, response) => {
   response.json(person)
 })
 
-app.delete('api/people/:id', (request, response) => {
+app.delete('/api/people/:id', (request, response) => {
     const id = Number(request.params.id)
     people = people.filter(person => person.id !== id)
     response.status(204).end()
