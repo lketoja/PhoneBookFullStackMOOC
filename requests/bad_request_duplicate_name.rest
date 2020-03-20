@@ -1,4 +1,4 @@
-POST http://localhost:3001/api/people
+POST https://mighty-stream-68473.herokuapp.com/api/people
 Content-Type: application/json
 
 {
